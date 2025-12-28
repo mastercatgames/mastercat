@@ -1,6 +1,8 @@
 "use client";
 
 import { Gamepad2, Sparkles, Users, Star, Cat } from "lucide-react";
+import { releasedGames } from "./GamesSection";
+import { projects } from "./InDevelopmentSection";
 
 export default function AboutSection() {
   const values = [
@@ -57,7 +59,7 @@ export default function AboutSection() {
             <div className="flex gap-4 pt-4">
               <div className="text-center">
                 <div className="text-4xl font-bold text-purple-600 dark:text-purple-400">
-                  X+
+                  {releasedGames.length}
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
                   Games Released
@@ -65,7 +67,7 @@ export default function AboutSection() {
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-purple-600 dark:text-purple-400">
-                  X+
+                  {projects.length}
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
                   Projects in Progress

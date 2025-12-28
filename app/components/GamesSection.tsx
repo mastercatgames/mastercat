@@ -14,7 +14,7 @@ interface Game {
 }
 
 // Sample data - you can replace this with your actual games
-const releasedGames: Game[] = [
+export const releasedGames: Game[] = [
   {
     id: 1,
     title: "Oliver the Octopus",

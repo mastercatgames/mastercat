@@ -1,7 +1,7 @@
 import { Rocket } from "lucide-react";
 import Image from "next/image";
 
-const projects = [
+export const projects = [
   {
     id: 1,
     title: "Alone at the Fast Food",
