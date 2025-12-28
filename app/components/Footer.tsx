@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div className="space-y-4">
             <h3 className="text-2xl font-bold bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Master Cat
+              Master Cat Games
             </h3>
             <p className="text-gray-400">
               Indie game studio crafting unique experiences with passion and creativity.
