@@ -25,7 +25,7 @@ const projects = [
 
 function ProjectCard({ project }: { project: typeof projects[0] }) {
   return (
-    <div className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+    <div className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
       <div className={`h-80 bg-linear-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative z-10 text-white space-y-4 text-center p-8">
@@ -36,8 +36,8 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
         </div>
       </div>
 
-      <div className="p-8 space-y-6">
-        <div>
+      <div className="p-8 flex flex-col flex-grow">
+        <div className="mb-6">
           <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
             {project.title}
           </h3>
@@ -59,7 +59,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
           </div>
         </div> */}
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mb-6">
           {project.features.map((feature) => (
             <span
               key={feature}
@@ -70,7 +70,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
           ))}
         </div>
 
-        <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+        <div className="pt-4 border-t border-gray-200 dark:border-gray-700 mt-auto">
           <div className="flex justify-between items-center">
             <span className="text-gray-600 dark:text-gray-400">Expected Release:</span>
             <span className="text-lg font-bold text-purple-600 dark:text-purple-400">
