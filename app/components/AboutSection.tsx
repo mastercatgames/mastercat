@@ -101,6 +101,62 @@ export default function AboutSection() {
           </div>
         </div>
 
+        {/* Meet the Team Section */}
+        <div className="mt-24 mb-16">
+          <h3 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+            Meet the Team
+          </h3>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <a
+              href="https://linktr.ee/augustopolonio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            >
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className="w-24 h-24 bg-linear-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-4xl font-bold group-hover:scale-110 transition-transform">
+                  <Image src="/augusto_polonio_avatar.jpg" alt="Augusto Polonio" width={96} height={96} className="rounded-full" />
+                </div>
+                <div>
+                  <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+                    Augusto Polonio
+                  </h4>
+                  <p className="text-purple-600 dark:text-purple-400 text-sm font-medium">
+                    Game Developer
+                  </p>
+                </div>
+                <div className="text-gray-600 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors text-sm">
+                  linktr.ee/augustopolonio →
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="http://instagram.com/hil.marta"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            >
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className="w-24 h-24 bg-linear-to-br from-pink-500 to-purple-500 rounded-full flex items-center justify-center text-white text-4xl font-bold group-hover:scale-110 transition-transform">
+                  <Image src="/marta_hilgert_avatar.jpg" alt="Marta Hilgert" width={96} height={96} className="rounded-full" />
+                </div>
+                <div>
+                  <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+                    Marta Hilgert
+                  </h4>
+                  <p className="text-purple-600 dark:text-purple-400 text-sm font-medium">
+                    Game Designer
+                  </p>
+                </div>
+                <div className="text-gray-600 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors text-sm">
+                  @hil.marta →
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
         <div className="mt-16">
           <h3 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
             Our Values
