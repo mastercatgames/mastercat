@@ -13,7 +13,7 @@ export const projects = [
     expectedRelease: "2026",
     color: "from-violet-500 to-purple-500",
     features: ["Psychological Horror", "Narrative-Driven", "Immersive Environments"],
-    image: '/game_covers/Alone_at_the_Fast_Food.png',
+    image: '/game_covers/Alone_at_the_fast_food.png',
   },
   // {
   //   id: 2,
