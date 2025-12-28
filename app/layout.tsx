@@ -13,10 +13,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Master Cat - Indie Game Studio",
-  description: "Master Cat Game Studio - Crafting unique indie games with passion and creativity",
+  title: "Master Cat Game Studio",
+  description: "Master Cat Games - Crafting unique indie games with passion and creativity",
   icons: {
-    icon: "/Cat.png",
+    icon: [
+      { url: "/Cat.png", sizes: "32x32", type: "image/png" },
+      { url: "/Cat.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/Cat.png",
   },
 };
 
