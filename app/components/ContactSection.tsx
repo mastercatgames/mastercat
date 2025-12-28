@@ -1,12 +1,12 @@
 "use client";
 
-import { Mail, MapPin, Twitter, Youtube, MessageCircle, Instagram, Gamepad2 } from "lucide-react";
+import { Mail, MapPin, Twitter, Youtube, MessageCircle, Instagram, Gamepad2, Github } from "lucide-react";
 
 const socialLinks = [
   { icon: Twitter, name: "Twitter", url: "https://x.com/MasterCatGames" },
   { icon: Youtube, name: "YouTube", url: "https://www.youtube.com/@mastercatgamestudio6869" },
-  { icon: MessageCircle, name: "Discord", url: "#" },
   { icon: Instagram, name: "Instagram", url: "https://instagram.com/mastercatgamestudio" },
+  { icon: Github, name: "GitHub", url: "https://github.com/mastercatgames" },
 ];
 
 export default function ContactSection() {
@@ -80,10 +80,10 @@ export default function ContactSection() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-14 h-14 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-purple-600 dark:hover:bg-purple-600 hover:text-white transition-all transform hover:scale-110 shadow-lg"
+                      className="w-14 h-14 min-w-14 min-h-14 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-purple-600 dark:hover:bg-purple-600 hover:text-white transition-all transform hover:scale-110 shadow-lg aspect-square"
                       title={social.name}
                     >
-                      <Icon className="w-6 h-6" />
+                      <Icon className="w-6 h-6 flex-shrink-0" />
                     </a>
                   );
                 })}
