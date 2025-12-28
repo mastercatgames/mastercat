@@ -1,4 +1,6 @@
 import { Gamepad2, Target, Sparkles } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 interface Game {
   id: number;
@@ -7,6 +9,8 @@ interface Game {
   status: "released" | "development" | "concept";
   tags: string[];
   color: string;
+  image?: string;
+  link?: string;
 }
 
 // Sample data - you can replace this with your actual games
@@ -18,6 +22,8 @@ const releasedGames: Game[] = [
     status: "released",
     tags: ["Adventure", "Platformer", "2.5D", "Single Player", "Casual"],
     color: "from-blue-500 to-cyan-500",
+    image: '/game_covers/Oliver_the_octopus.jpg',
+    link: 'https://mastercatgames.itch.io/oliver-the-octopus', // Add your game link here
   },
   {
     id: 2,
@@ -26,6 +32,8 @@ const releasedGames: Game[] = [
     status: "released",
     tags: ["Puzzle", "Casual", "Time Management", "Single Player", "Color Matching", "Mobile"],
     color: "from-purple-500 to-pink-500",
+    image: '/game_covers/Tinturaria.png',
+    link: 'https://play.google.com/store/apps/details?id=com.mastercat.tinturaria', // Add your game link here
   },
   {
     id: 3,
@@ -34,6 +42,8 @@ const releasedGames: Game[] = [
     status: "released",
     tags: ["Arcade", "Casual", "Endless Runner", "Single Player", "Mobile"],
     color: "from-green-500 to-emerald-500",
+    image: '/game_covers/Flappy_Black_Cat.png',
+    link: 'https://play.google.com/store/apps/details?id=com.mastercat.flappyblackcat', // Add your game link here
   },
   {
     id: 4,
@@ -42,6 +52,8 @@ const releasedGames: Game[] = [
     status: "released",
     tags: ["Puzzle", "Casual", "Stacking", "Single Player", "Mobile", "Addictive", "Family Friendly", "Tetris-like"],
     color: "from-red-500 to-yellow-500",
+    image: '/game_covers/Crazy_Stack_Blocks.png',
+    link: 'https://mastercatgames.itch.io/crazy-stack-blocks', // Add your game link here
   },
   {
     id: 5,
@@ -50,6 +62,8 @@ const releasedGames: Game[] = [
     status: "released",
     tags: ["Endless Runner", "Casual", "Single Player", "Mobile", "Collecting", "Obstacles"],
     color: "from-indigo-500 to-purple-500",
+    image: '/game_covers/Running_Food.png',
+    link: 'https://play.google.com/store/apps/details?id=com.mastercat.runningfood', // Add your game link here
   },
 ];
 
@@ -59,12 +73,28 @@ function GameCard({ game }: { game: Game }) {
   const remainingTags = game.tags.slice(4);
   const hasMoreTags = game.tags.length > 4;
 
-  return (
-    <div className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full">
-      {/* Image placeholder */}
-      <div className={`h-64 bg-linear-to-br ${game.color} flex items-center justify-center relative overflow-hidden`}>
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all" />
-        <Gamepad2 className="relative z-10 w-24 h-24 text-white" />
+  const cardContent = (
+    <>
+      {/* Game cover image or color gradient */}
+      <div className="aspect-video relative overflow-hidden bg-gray-900">
+        {game.image ? (
+          <>
+            <Image
+              src={game.image}
+              alt={game.title}
+              fill
+              className="object-contain group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          </>
+        ) : (
+          <>
+            <div className={`h-full bg-linear-to-br ${game.color} flex items-center justify-center relative`}>
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all" />
+              <Gamepad2 className="relative z-10 w-24 h-24 text-white" />
+            </div>
+          </>
+        )}
       </div>
 
       <div className="p-6 flex flex-col flex-grow">
@@ -93,10 +123,29 @@ function GameCard({ game }: { game: Game }) {
             </span>
           )}
         </div>
-        <button className="w-full mt-auto px-6 py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105">
+        <div className="w-full mt-auto px-6 py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold text-center">
           Learn More
-        </button>
+        </div>
       </div>
+    </>
+  );
+
+  if (game.link) {
+    return (
+      <Link
+        href={game.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full cursor-pointer"
+      >
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return (
+    <div className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full">
+      {cardContent}
     </div>
   );
 }
@@ -121,57 +170,7 @@ export default function GamesSection() {
           ))}
         </div>
 
-        {/* Unreleased Games Section */}
-        <div className="mt-24 text-center mb-16 space-y-4">
-          <h3 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-            Unreleased Gems
-          </h3>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Projects we've worked on that are waiting for the perfect moment
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 opacity-75">
-          <div className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-            <div className="h-64 bg-linear-to-br from-amber-500 to-orange-500 flex items-center justify-center relative">
-              <div className="absolute inset-0 bg-black/20" />
-              <Target className="relative z-10 w-24 h-24 text-white" />
-            </div>
-            <div className="p-6 space-y-4">
-              <h4 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Unreleased Title 1
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300">
-                An ambitious project exploring new gameplay mechanics
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-sm font-medium">
-                  Experimental
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-            <div className="h-64 bg-linear-to-br from-teal-500 to-cyan-500 flex items-center justify-center relative">
-              <div className="absolute inset-0 bg-black/20" />
-              <Sparkles className="relative z-10 w-24 h-24 text-white" />
-            </div>
-            <div className="p-6 space-y-4">
-              <h4 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Unreleased Title 2
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300">
-                A creative experiment that pushed our boundaries
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-full text-sm font-medium">
-                  Archive
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+       
       </div>
     </section>
   );

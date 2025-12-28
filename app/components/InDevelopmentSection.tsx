@@ -1,39 +1,68 @@
 import { Rocket } from "lucide-react";
+import Image from "next/image";
 
 const projects = [
   {
     id: 1,
-    title: "Next Big Project",
-    description: "Our most ambitious project yet! A revolutionary gaming experience that combines innovative mechanics with stunning visuals.",
-    status: "In Active Development",
+    title: "Alone at the Fast Food",
+    //description: "Our most ambitious project yet! A revolutionary gaming experience that combines innovative mechanics with stunning visuals.",
+    //status: "In Active Development",
+    description: undefined as string | undefined,
+    status: undefined as string | undefined,
     progress: 65,
     expectedRelease: "2026",
     color: "from-violet-500 to-purple-500",
-    features: ["New Engine", "Multiplayer", "VR Support"],
+    features: ["Psychological Horror", "Narrative-Driven", "Immersive Environments"],
+    image: '/game_covers/Alone_at_the_Fast_Food.png',
   },
-  {
-    id: 2,
-    title: "Secret Project Alpha",
-    description: "Something exciting is brewing in our studio. Stay tuned for announcements!",
-    status: "Early Concept",
-    progress: 20,
-    expectedRelease: "TBA",
-    color: "from-pink-500 to-rose-500",
-    features: ["Innovative Gameplay", "Unique Art Style"],
-  },
+  // {
+  //   id: 2,
+  //   title: "Secret Project Alpha",
+  //   description: "Something exciting is brewing in our studio. Stay tuned for announcements!",
+  //   status: "Early Concept",
+  //   progress: 20,
+  //   expectedRelease: "TBA",
+  //   color: "from-pink-500 to-rose-500",
+  //   features: ["Innovative Gameplay", "Unique Art Style"],
+  //   image: undefined as string | undefined,
+  // },
 ];
 
 function ProjectCard({ project }: { project: typeof projects[0] }) {
   return (
     <div className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
-      <div className={`h-80 bg-linear-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="relative z-10 text-white space-y-4 text-center p-8">
-          <Rocket className="w-28 h-28 mx-auto mb-4 text-white" />
-          <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-sm font-semibold">
-            {project.status}
-          </div>
-        </div>
+      <div className="h-80 relative overflow-hidden">
+        {project.image ? (
+          <>
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white space-y-4 text-center p-8 z-10">
+              {/* <Rocket className="w-28 h-28 text-white" /> */}
+              {project.status && (
+              <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-sm font-semibold">
+                {project.status}
+              </div>
+              )}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className={`h-full bg-linear-to-br ${project.color} flex items-center justify-center relative`}>
+              <div className="absolute inset-0 bg-black/30" />
+              <div className="relative z-10 text-white space-y-4 text-center p-8">
+                <Rocket className="w-28 h-28 mx-auto mb-4 text-white" />
+                <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-sm font-semibold">
+                  {project.status}
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="p-8 flex flex-col flex-grow">
@@ -41,9 +70,11 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
           <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
             {project.title}
           </h3>
+          {project.description && (
           <p className="text-gray-600 dark:text-gray-300 text-lg">
             {project.description}
           </p>
+          )}
         </div>
 
         {/* <div className="space-y-3">
