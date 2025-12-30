@@ -40,7 +40,9 @@ export default function Navigation() {
               alt="Master Cat"
               width={150}
               height={40}
+              priority
               className="h-8 w-auto"
+              style={{ width: 'auto', height: '32px' }}
             />
           </button>
 

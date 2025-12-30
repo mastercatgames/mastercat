@@ -15,7 +15,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-        <div className="space-y-8 animate-fade-in">
+        <div className="space-y-8 opacity-0 animate-[fade-in_1s_ease-out_forwards]">
           <div className="flex justify-center mb-6">
             <Image
               src="/MasterCat_Logo.png"

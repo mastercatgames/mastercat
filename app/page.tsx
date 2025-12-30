@@ -7,6 +7,7 @@ import InDevelopmentSection from "./components/InDevelopmentSection";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import ScrollReveal from "./components/ScrollReveal";
 
 export default function Home() {
   return (
@@ -14,12 +15,22 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
-        <GamesSection />
-        <InDevelopmentSection />
-        <AboutSection />
-        <ContactSection />
+        <ScrollReveal direction="up">
+          <GamesSection />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={100}>
+          <InDevelopmentSection />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={100}>
+          <AboutSection />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={100}>
+          <ContactSection />
+        </ScrollReveal>
       </main>
-      <Footer />
+      <ScrollReveal direction="fade">
+        <Footer />
+      </ScrollReveal>
     </div>
   );
 }

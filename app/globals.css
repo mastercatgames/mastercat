@@ -37,11 +37,9 @@ body {
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -105,3 +103,35 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #7e22ce, #db2777);
 }
+
+/* Scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate(0, 0) !important;
+}
+
+.reveal-up {
+  transform: translateY(60px);
+}
+
+.reveal-down {
+  transform: translateY(-60px);
+}
+
+.reveal-left {
+  transform: translateX(60px);
+}
+
+.reveal-right {
+  transform: translateX(-60px);
+}
+
+.reveal-fade {
+  transform: none;
+}
+
