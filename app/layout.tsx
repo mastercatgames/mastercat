@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     ],
     apple: "/Cat.png",
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
