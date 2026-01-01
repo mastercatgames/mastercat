@@ -108,7 +108,7 @@ export default function AboutSection() {
           </h3>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <a
-              href="https://linktr.ee/augustopolonio"
+              href="https://augustopolonio.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
@@ -126,7 +126,7 @@ export default function AboutSection() {
                   </p>
                 </div>
                 <div className="text-gray-600 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors text-sm">
-                  linktr.ee/augustopolonio →
+                  Website/Portfolio →
                 </div>
               </div>
             </a>
